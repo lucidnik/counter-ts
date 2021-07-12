@@ -1,9 +1,10 @@
 import React from "react";
 import {Button} from "./Button";
-import s from './Button.module.css'
+import s from './Button.module.css';
 
 type PropsType = {
     state: number
+    maxState: number
     increase: () => void
     reset: () => void
     resetDisabled?: boolean
@@ -15,9 +16,9 @@ export const Counter = (props: PropsType) => {
     return (
 
         <div>
-            <div className={props.state === 5 ? s.error : '' } >{props.state}</div>
-            <Button btnName={'+'} function={props.increase} incDisabled={props.incDisabled} state={props.state} />
-            <Button btnName={'reset'} function={props.reset} resetDisabled={props.resetDisabled} state={props.state} />
+            <div className={props.state === props.maxState ? s.error : ''}>{props.state}</div>
+            <Button btnName={'+'} function={props.increase} incDisabled={props.incDisabled} state={props.state}/>
+            <Button btnName={'reset'} function={props.reset} resetDisabled={props.resetDisabled} state={props.state}/>
         </div>
     );
 };
